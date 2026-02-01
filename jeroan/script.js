@@ -1,6 +1,6 @@
 "use strict";
 
-const LV_CAP = 310;
+const LV_CAP = 315;
 
 const range = function (begin, end, step = 1) {
   let list = [];
@@ -226,7 +226,7 @@ const splitMqInfo = function () {
 $(document).ready(function () {
   $("#target-level").val(LV_CAP);
   $("#quest-name").html(
-    fillOptions(Object.values(quest_data), Object.keys(quest_data)),
+    fillOptions(Object.values(quest_data), Object.keys(quest_data))
   );
   $("#quest-name").val("15000000").trigger("input");
   let [keys, vals] = splitMqInfo();
@@ -237,7 +237,7 @@ $(document).ready(function () {
 
 $("#quest-popup").on("click", function () {
   alert(
-    'Use custom experience to set unlisted quest or monster experience.\n\nHint: Type "1" on "Exp" field to discover total raw XP required to reach target Lv.',
+    'Use custom experience to set unlisted quest or monster experience.\n\nHint: Type "1" on "Exp" field to discover total raw XP required to reach target Lv.'
   );
 });
 
@@ -282,7 +282,7 @@ const evaluateTarget = function () {
   let [nLv, nLvP] = addXP(
     lv,
     percentage,
-    questXP * parseInput("#quest-times", 0),
+    questXP * parseInput("#quest-times", 0)
   );
   $("#target-times").text(targetTimes);
   $("#times-level").text(`${nLv} (${nLvP}%)`);
@@ -368,7 +368,7 @@ const evaluateDiaries = function () {
                 <div class="mq-table-grid" id="mq-table-row">
                     <div>${runs + 1}</div>
                     <div>${$(
-                      `#mq-until option[value="${mqStopIndex}"]`,
+                      `#mq-until option[value="${mqStopIndex}"]`
                     ).text()}</div>
                     <div>${lv} (${lvP}%)</div>
                 </div>
@@ -413,11 +413,11 @@ const evaluateMQ = function () {
       }
     }
     $("#mq-xp").html(
-      `<strong>XP</strong>: ${new Intl.NumberFormat().format(mqXP)}`,
+      `<strong>XP</strong>: ${new Intl.NumberFormat().format(mqXP)}`
     );
     let [mqLv, mqLvP] = addXP(lv, lvP, mqXP);
     $("#mq-eval").html(
-      `After doing Main Quest's above range you'll reach <strong>Lv.${mqLv} (${mqLvP}%)</strong>`,
+      `After doing Main Quest's above range you'll reach <strong>Lv.${mqLv} (${mqLvP}%)</strong>`
     );
 
     const spamAdv = $("#multiple-mq").prop("checked");
@@ -425,7 +425,7 @@ const evaluateMQ = function () {
     if (mqStopAt && !spamAdv) {
       let quest = $(`#mq-until option[value="${mqStopIndex}"]`).text();
       $("#mq-stopAt").html(
-        `You may <strong>stop</strong> after quest <strong>${quest}</strong> to reach target level`,
+        `You may <strong>stop</strong> after quest <strong>${quest}</strong> to reach target level`
       );
       $("#mq-or").show();
     } else {
@@ -436,7 +436,7 @@ const evaluateMQ = function () {
     if (mqStartFrom && !spamAdv) {
       let quest = $(`#mq-until option[value="${mqStartIndex}"]`).text();
       $("#mq-startFrom").html(
-        `You may <strong>start</strong> from quest <strong>${quest}</strong> to reach target level`,
+        `You may <strong>start</strong> from quest <strong>${quest}</strong> to reach target level`
       );
     } else {
       $("#mq-startFrom").html("");
