@@ -1,6 +1,6 @@
 "use strict";
 
-const LV_CAP = 320;
+const LV_CAP = 325;
 
 const range = function (begin, end, step = 1) {
   let list = [];
@@ -207,6 +207,9 @@ const mq_data = {
   "The Village of Lixis": 240000000,
   "Visions of a Distant Past": 246000000,
   "As the Roots Come to Light": 252100000,
+  "Chapter 16": "",
+  "Freedos's Thoughts": 141700000,
+  "Chaos in the Valley": 293700000,
 };
 
 const splitMqInfo = function () {
